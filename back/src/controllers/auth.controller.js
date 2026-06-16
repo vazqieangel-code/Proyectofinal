@@ -138,9 +138,12 @@ const loginUsuario = async (req, res) => {
             }
         });
     } catch (error) {
+        console.error('ERROR LOGIN:', error);
+
         res.status(500).json({
             mensaje: 'Error al iniciar sesión',
-            error: error.message
+            error: error.message,
+            codigo: error.code
         });
     }
 };
